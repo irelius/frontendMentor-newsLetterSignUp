@@ -29,116 +29,105 @@
 </head>
 
 <body>
-    <div class="base">
-        <div id="subscribe-page">
-            <img class="m-b-40" src="assets/images/illustration-sign-up-mobile.svg">
-            <div class="main">
-                <section class="p-b-40">
-                    <div class="font-h p-b-24">
-                        Stay updated!
-                    </div>
-                    <div class="font-body p-b-24">
-                        Join 60,000+ product managers receiving monthly updates on:
-                    </div>
-                    <div>
-                        <section class="fd-r p-b-10">
-                            <aside>
-                                <img src="assets/images/icon-list.svg">
-                            </aside>
-                            <aside class="font-body p-l-16">Product discovery and building what matters</aside>
-                        </section>
-                        <section class="fd-r p-b-10">
-                            <aside>
-                                <img src="assets/images/icon-list.svg">
-                            </aside>
-                            <aside class="font-body p-l-16"> Measuring to ensure updates are a success</aside>
-                        </section>
-                        <section class="fd-r">
-                            <aside>
-                                <img src="assets/images/icon-list.svg">
-                            </aside>
-                            <aside class="font-body p-l-16"> And much more! </aside>
-                        </section>
-                    </div>
-                </section>
-                <section>
-                    <div class="p-b-24">
-                        <div class="font-b-small p-b-8">Email address</div>
-                        <div class="input-container">
-                            <input id="subscribe-email-input" class='input-field' type="text"
+    <div class="overlay">
+        <div class="base">
+            <div class="subscribe-page">
+                <picture>
+                    <source media="(max-width:375px)" srcset="assets/images/illustration-sign-up-mobile.svg">
+                    <img class="m-b-40" src="assets/images/illustration-sign-up-desktop.svg">
+                </picture>
+                <div class="main">
+                    <section class="p-b-40">
+                        <div class="font-h p-b-24">
+                            Stay updated!
+                        </div>
+                        <div class="font-body p-b-24">
+                            Join 60,000+ product managers receiving monthly updates on:
+                        </div>
+                        <div>
+                            <section class="fd-r p-b-10">
+                                <aside class="p-t-1 p-r-16">
+                                    <img src="assets/images/icon-list.svg">
+                                </aside>
+                                <aside class="font-body">Product discovery and building what matters</aside>
+                            </section>
+                            <section class="fd-r p-b-10">
+                                <aside class="p-t-1 p-r-16">
+                                    <img src="assets/images/icon-list.svg">
+                                </aside>
+                                <aside class="font-body"> Measuring to ensure updates are a success</aside>
+                            </section>
+                            <section class="fd-r">
+                                <aside class="p-t-1 p-r-16">
+                                    <img src="assets/images/icon-list.svg">
+                                </aside>
+                                <aside class="font-body"> And much more! </aside>
+                            </section>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="p-b-24">
+                            <div class="fd-r jc-sb">
+                                <div class="font-b-small p-b-8">Email address</div>
+                                <div class="font-b-small vermellion display-none" id="valid-email">Valid email required
+                                </div>
+                            </div>
+                            <input id="subscribe-email-input" class='subscribe-email-input focus pointer' type="text"
                                 placeholder="email@company.com">
                         </div>
-                    </div>
-                    <div class="button-container">
-                        <section id="subscribe-button" class="button-text font-b-bold">
-                            Subscribe to monthly newsletter
-                        </section>
-                    </div>
-                </section>
+                        <div class="button-container pointer gradient1 drop-shadow">
+                            <section id="subscribe-button" class="button-text font-b-bold">
+                                Subscribe to monthly newsletter
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="success display-none" id="success-page">
+                <div class="success-body">
+                    <img class="m-b-40" src="assets/images/icon-success.svg">
+                    <section class="font-h">
+                        Thanks for subscribing!
+                    </section>
+                    <section class="font-body">
+                        A confirmation email has been sent to <p id="subscribe-email" class="font-b-bold">
+                            ash@loremcompany.com</p>. Please open it and click the button inside to confirm your
+                        subscription
+                    </section>
+                </div>
+                <div class="button-container">
+                    <section class="font-b-bold button-text" id="dismiss-button">
+                        Dismiss message
+                    </section>
+                </div>
             </div>
         </div>
-        <div class="success display-none" id="success-page">
-            <div class="success-body">
-                <img class="m-b-40" src="assets/images/icon-success.svg">
-                <section class="font-h p-b-24">
-                    Thanks for subscribing!
-                </section>
-                <section class="font-body">
-                    A confirmation email has been sent to <p id="subscribe-email" class="font-b-bold">ash@loremcompany.com</p>. Please open it and click the button inside to confirm your subscription
-                </section>
-            </div>
-            <div class="button-container">
-                <section class="font-b-bold button-text" id="dismiss-button">
-                    Dismiss message
-                </section>
-            </div>
+
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="https://samuelbae.netlify.app" target="_blank">Samuel Bae</a>.
         </div>
-
     </div>
-
-    <!-- Sign-up form start -->
-
-    <!-- Stay updated!
-
-  Join 60,000+ product managers receiving monthly updates on:
-
-  Product discovery and building what matters
-  Measuring to ensure updates are a success
-  And much more!
-
-  Email address
-  email@company.com
-
-  Subscribe to monthly newsletter -->
-
-    <!-- Sign-up form end -->
-
-    <!-- Success message start -->
-
-    <!-- Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com.
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message -->
-
-    <!-- Success message end -->
-
-    <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-        Coded by <a href="https://samuelbae.netlify.app" target="_blank">Samuel Bae</a>.
-    </div>
-
 
     <script>
         const subscribeButton = document.getElementById('subscribe-button')
+        const invalidMessage = document.getElementById('valid-email')
         const dismissButton = document.getElementById('dismiss-button')
         const inputEmail = document.getElementById('subscribe-email-input')
         const subscribePage = document.getElementById('subscribe-page')
         const successPage = document.getElementById('success-page')
 
+        inputEmail.addEventListener("input", () => {
+            invalidMessage.classList.add("display-none")
+            inputEmail.classList.remove("invalid-input")
+        })
+
         subscribeButton.addEventListener("click", () => {
-            if (inputEmail.value.length > 1) {
+            if (!inputEmail.value.includes("@") || inputEmail.value.length < 2) {
+                invalidMessage.classList.remove("display-none")
+                inputEmail.classList.add("invalid-input")
+                return;
+            } else {
                 document.getElementById("subscribe-email").textContent = inputEmail.value
             }
             successPage.classList.remove("display-none")
