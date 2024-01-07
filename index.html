@@ -12,29 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link href="index.css" rel="stylesheet">
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-        .attribution {
-            font-size: 11px;
-            text-align: center;
-        }
-
-        .attribution a {
-            color: hsl(228, 45%, 44%);
-        }
-    </style>
-
     <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 </head>
 
 <body>
     <div class="overlay">
-        <div class="base">
-            <div class="subscribe-page">
+        <div id="base" class="base">
+            <div id="subscribe-page" class="subscribe-page">
                 <picture>
                     <source media="(max-width:375px)" srcset="assets/images/illustration-sign-up-mobile.svg">
-                    <img class="m-b-40" src="assets/images/illustration-sign-up-desktop.svg">
+                    <img class="" src="assets/images/illustration-sign-up-desktop.svg">
                 </picture>
                 <div class="main">
                     <section class="p-b-40">
@@ -57,7 +44,7 @@
                                 </aside>
                                 <aside class="font-body"> Measuring to ensure updates are a success</aside>
                             </section>
-                            <section class="fd-r">
+                            <section class="fd-r p-b-10">
                                 <aside class="p-t-1 p-r-16">
                                     <img src="assets/images/icon-list.svg">
                                 </aside>
@@ -67,16 +54,16 @@
                     </section>
                     <section>
                         <div class="p-b-24">
-                            <div class="fd-r jc-sb">
-                                <div class="font-b-small p-b-8">Email address</div>
+                            <div class="p-b-8">
+                                <div class="font-b-small">Email address</div>
                                 <div class="font-b-small vermellion display-none" id="valid-email">Valid email required
                                 </div>
                             </div>
-                            <input id="subscribe-email-input" class='subscribe-email-input focus pointer' type="text"
+                            <input id="subscribe-email-input" class="subscribe-email-input focus pointer" type="text"
                                 placeholder="email@company.com">
                         </div>
-                        <div class="button-container pointer gradient1 drop-shadow">
-                            <section id="subscribe-button" class="button-text font-b-bold">
+                        <div id="subscribe-button" class="button-subscribe pointer gradient1 drop-shadow">
+                            <section class="button-text font-b-bold">
                                 Subscribe to monthly newsletter
                             </section>
                         </div>
@@ -86,7 +73,7 @@
             <div class="success display-none" id="success-page">
                 <div class="success-body">
                     <img class="m-b-40" src="assets/images/icon-success.svg">
-                    <section class="font-h">
+                    <section class="font-h p-b-24">
                         Thanks for subscribing!
                     </section>
                     <section class="font-body">
@@ -94,22 +81,25 @@
                             ash@loremcompany.com</p>. Please open it and click the button inside to confirm your
                         subscription
                     </section>
-                </div>
-                <div class="button-container">
-                    <section class="font-b-bold button-text" id="dismiss-button">
-                        Dismiss message
+                    <section id="dismiss-button" class="button-dismiss pointer drop-shadow gradient1">
+                        <section class="font-b-bold button-text">
+                            Dismiss message
+                        </section>
                     </section>
                 </div>
             </div>
         </div>
 
         <div class="attribution">
-            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-            Coded by <a href="https://samuelbae.netlify.app" target="_blank">Samuel Bae</a>.
+            <div class="test">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+                Coded by <a href="https://samuelbae.netlify.app" target="_blank">Samuel Bae</a>.
+            </div>
         </div>
     </div>
 
     <script>
+        const base = document.getElementById("base")
         const subscribeButton = document.getElementById('subscribe-button')
         const invalidMessage = document.getElementById('valid-email')
         const dismissButton = document.getElementById('dismiss-button')
@@ -117,26 +107,45 @@
         const subscribePage = document.getElementById('subscribe-page')
         const successPage = document.getElementById('success-page')
 
+
+        // change the invalid message and css to disappear when user edits the email address
         inputEmail.addEventListener("input", () => {
             invalidMessage.classList.add("display-none")
             inputEmail.classList.remove("invalid-input")
         })
 
+        // event listener for subscribe button
         subscribeButton.addEventListener("click", () => {
+            // if email doesn't include @ or is less than 2 characters long: show invalid email message
             if (!inputEmail.value.includes("@") || inputEmail.value.length < 2) {
                 invalidMessage.classList.remove("display-none")
                 inputEmail.classList.add("invalid-input")
                 return;
-            } else {
-                document.getElementById("subscribe-email").textContent = inputEmail.value
             }
-            successPage.classList.remove("display-none")
-            subscribePage.classList.add("display-none")
+            // else...
+            else {
+                document.getElementById("subscribe-email").textContent = inputEmail.value.trim()
+
+                // show success page
+                successPage.classList.remove("display-none")
+                // hide subscribe page
+                subscribePage.classList.add("display-none")
+
+                // edit base element to base-small for adjusted success page size
+                base.classList.remove('base')
+                base.classList.add('base-small')
+            }
         })
 
+        // when dismiss button gets clicked...
         dismissButton.addEventListener('click', () => {
+            // make success page invisible and show subscribe page
             successPage.classList.add("display-none")
             subscribePage.classList.remove("display-none")
+
+            // change the base class so dimensions work
+            base.classList.add('base')
+            base.classList.remove('base-small')
         })
     </script>
 </body>

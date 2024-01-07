@@ -31,7 +31,19 @@
         font-size: var(--16);
         line-height: 1.5;
         font-weight: var(--regular);
-        color: var(--dark-navy)
+        color: var(--dark-navy);
+
+        @media screen and (min-width:1440px) {
+            // padding-bottom: 40px;
+        }
+    }
+
+    &-list {
+        font-size: var(--16);
+        line-height: 1.5;
+        font-weight: var(--regular);
+        color: var(--dark-navy);
+        // padding-bottom: 10px;
     }
 
     &-b-bold {
@@ -50,78 +62,6 @@
 .vermellion {
     color: var(--vermellion)
 }
-
-
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--white);
-    line-height: 0;
-    color: var(--dark-navy);
-
-    @media screen and (min-width:1440px) {
-        background-color: var(--pale-navy);
-    }
-}
-
-.overlay {
-    @media screen and (min-width:1440px) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        height: 100vh;
-    }
-}
-
-.base {
-    width: 100%;
-    height: 100%;
-    background-color: var(--white);
-    overflow: hidden;
-
-    @media screen and (min-width:1440px) {
-        height: 641px;
-        width: 928px;
-        border-radius: 36px;
-    }
-
-}
-
-.subscribe-page {
-    @media screen and (min-width:1440px) {
-        display: flex;
-        flex-direction: row-reverse;
-
-        justify-content: center;
-        align-items: center;
-
-        padding: 24px 24px 24px 64px;
-    }
-}
-
-.main {
-    padding: 0px 24px 40px 24px;
-
-    @media screen and (min-width:1440px) {
-        padding: 0px;
-        height: 446px;
-        width: 376px;
-
-        margin-right: 64px;
-
-    }
-}
-
-.success {
-    padding: 149px 24px 40px 24px;
-
-    &-body {
-        padding-bottom: 263px;
-    }
-}
-
 
 // Padding and Margins
 $t-padding: 1;
@@ -153,13 +93,21 @@ $r-padding: 16;
     }
 }
 
+$t-margin: 263;
 $b-margin: 40;
+
+@each $margin in $t-margin {
+    .m-t-#{$margin} {
+        margin-top: #{$margin}px
+    }
+}
 
 @each $margin in $b-margin {
     .m-b-#{$margin} {
         margin-bottom: #{$margin}px
     }
 }
+
 
 
 // Flex directions
@@ -189,24 +137,115 @@ $justify-contents: (
     }
 }
 
-.input {
-    &-container {
-        display: flex;
 
-        height: 56px;
-        border: 1px solid var(--gray);
-        border-radius: 8px;
-    }
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--white);
+    line-height: 0;
+    color: var(--dark-navy);
 
-    &-field {
-        padding-left: 24px;
-        color: var(--dark-navy);
-        opacity: 0.5;
+    @media screen and (min-width:1440px) {
+        background-color: var(--pale-navy);
     }
 }
 
+.overlay {
+    @media screen and (min-width:1440px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        height: 100vh;
+    }
+}
+
+.base {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--white);
+
+    @media screen and (min-width:1440px) {
+        height: 641px;
+        width: 928px;
+        border-radius: 36px;
+    }
+
+    &-small {
+        @media screen and (min-width:1440px) {
+            height: 520px;
+            width: 504px;
+        }
+    }
+
+}
+
+
+.subscribe-page {
+    @media screen and (min-width:1440px) {
+        display: flex;
+        flex-direction: row-reverse;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 24px 24px 24px 64px;
+    }
+}
+
+.main {
+    padding: 40px 24px 40px 24px;
+
+    @media screen and (min-width:1440px) {
+        padding: 0px;
+        height: 446px;
+        width: 376px;
+
+        margin-right: 64px;
+
+    }
+}
+
+.success {
+    padding: 149px 24px 40px 24px;
+
+    &-body {
+        @media screen and (min-width:1440px) {
+            padding: 48px 64px 64px 64px;
+        }
+
+    }
+
+    @media screen and (min-width:1440px) {
+        width: 504px;
+        height: 520px;
+        border-radius: 36px;
+        background-color: var(--white);
+
+        padding: 0px;
+    }
+}
+
+
+// .input {
+//     &-container {
+//         display: flex;
+
+//         height: 56px;
+//         border: 1px solid var(--gray);
+//         border-radius: 8px;
+//     }
+
+//     &-field {
+//         padding-left: 24px;
+//         color: var(--dark-navy);
+//         opacity: 0.5;
+//     }
+// }
+
 .button {
-    &-container {
+    &-subscribe {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -214,6 +253,34 @@ $justify-contents: (
 
         border-radius: 8px;
         background-color: var(--dark-navy);
+
+        @media screen and (min-width: 1440px) {
+            display: flex;
+            justify-content: center;
+            width: 376px;
+
+            margin-top: 0px;
+        }
+    }
+
+    &-dismiss {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 56px;
+
+        border-radius: 8px;
+        background-color: var(--dark-navy);
+
+        margin-top: 263px;
+
+        @media screen and (min-width: 1440px) {
+            display: flex;
+            justify-content: center;
+            width: 376px;
+
+            margin-top: 40px;
+        }
     }
 
     &-text {
@@ -227,20 +294,7 @@ $justify-contents: (
 }
 
 
-// .drop-shadow {
-//     &-1 {}
-
-//     &-2 {}
-// }
-
-
-
 // --------------------------------------------------------------------------------------
-.booba {
-    background-color: orange;
-}
-
-
 #subscribe-email {
     display: inline;
 }
@@ -277,4 +331,31 @@ $justify-contents: (
     background-color: rgba(255, 97, 85, 0.15);
 }
 
-@media screen and (min-width:1440px) {}
+
+// --------------------------------------------------------------------------------------
+.attribution {
+    font-size: 11px;
+    font-weight: lighter;
+    text-align: center;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 1440px) {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        color: white;
+        font-weight: lighter;
+    }
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+    font-weight: lighter;
+
+    @media screen and (min-width: 1440px) {
+        color: white;
+        font-weight: lighter;
+        text-decoration: underline;
+    }
+}
